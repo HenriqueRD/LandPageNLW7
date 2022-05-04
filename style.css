@@ -1,0 +1,244 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    font-size: 62.5%;
+    --sColor1: #061800;
+    --sColor2: #384633;
+    --sColor3: #3E3E3E;
+
+    --pColor1: #00856F;
+    --pColor1Hover: #00453A;
+    --pColor2: #DCE9E2;
+    --pColor3: #F7F9F9;
+    --pColor4: #FFFAF1;
+
+    --font-subtitle: 1.6rem;
+    --font-title: 3rem;
+
+    --header-height: 7.2rem;
+}
+html {
+    scroll-behavior: smooth;   
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    font: 500 var(--font-subtitle) 'Poppins', sans-serif;
+    background-color: var(--pColor2);
+
+    color: var(--sColor2);
+}
+button, a, ul, li {
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+}
+.grid {
+    gap: 2rem;
+}
+.container {
+    padding: 0rem 2.5rem;
+}
+
+/*====HEADER====*/
+#header {
+    background-color: var(--pColor2);
+
+    width: 100%;
+    height: 7.2rem;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+
+    padding: 1rem 0rem;
+    transition: 250ms;
+}
+#header .container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#header .logo {
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--sColor3);
+    transition: 250ms;
+
+}
+#header .logo strong{
+    color: var(--pColor1);
+    font-weight: 700!important;
+    transition: 250ms;
+}
+#header .open{
+    background-color: transparent;
+}
+#header.scroll {
+    background-color: var(--pColor1);
+}
+#header.scroll .logo, #header.scroll .logo strong {
+    color: var(--pColor3);
+}
+#header.scroll .open svg path{
+    stroke: var(--pColor3);
+}
+#header .menu, .close {
+    visibility: hidden;
+    opacity: 0;
+}
+/*MENU MOB*/
+body.menu-expanded {
+    overflow: hidden !important;
+  }
+ body.menuExpanded .menu {
+    padding-top: 15rem;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+body.menuExpanded .close {
+    visibility: visible;
+    position: fixed;
+    background-color: transparent;
+    top: 13px;
+    right: 18px;
+    z-index: 5;
+    opacity: 1;
+}
+body.menuExpanded .logo, body.menuExpanded .logo strong {
+    z-index: 100;
+    color: var(--pColor3) !important;
+}
+body.menuExpanded .open {
+    visibility: hidden;
+    opacity: 0;
+}
+body.menuExpanded .menu {
+    width: 100vw;
+    height: 100vh;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    background-color: var(--pColor1);
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+body.menuExpanded .menu .menuList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5rem;
+}
+body.menuExpanded .menu .menuList a{
+    color: var(--pColor3);
+    font-size: 2.5rem;
+}
+body .menu .menuList a:hover:not(.btn){
+    border-bottom: 3px solid var(--pColor3);
+    padding-right: .6rem;
+    border-radius: .3rem;
+    border-right: 3px solid var(--pColor3);
+}
+body.menuExpanded .menu .menuList .btn{
+    padding: 1.4rem 3rem;
+    color: var(--pColor1);
+    border-radius: 5rem;
+    background-color: var(--pColor3);
+    transition:  250ms;
+}
+body.menuExpanded .menu .menuList .btn:hover{
+    padding: 1.4rem 3rem;
+    color: var(--pColor3);
+    border-radius: 5rem;
+    background-color: var(--pColor1Hover);
+}
+body.menuExpanded .menu .redeSocialMenu{
+    margin-top: 13rem;
+    display: flex;
+    gap: 5rem;
+}
+
+/*====HOME====*/
+#home {
+    margin-top: calc(var(--header-height) + 4.5rem);
+    background-color: var(--pColor2);
+}
+#home .infoHome {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+#home .infoHome h6{
+    color: var(--pColor1);
+    font-size: 1.4rem;
+}
+#home .infoHome h1{
+    color: var(--sColor1);
+    font-size: 3.4rem;
+}
+#home .infoHome p{
+    font-size: 1.8rem;
+}
+#home .infoHome button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1.2rem;
+    padding: 1.6rem 3.2rem;
+    border-radius: 4rem;
+
+    background-color: var(--pColor1);
+    color: var(--pColor3);
+    font-size: 1.4rem;
+
+    transition: 250ms;
+}
+#home .infoHome button:hover{
+    background-color: var(--pColor1Hover);
+    color: var(--pColor3);
+    font-size: 1.4rem;
+}
+#home .infoHome img{
+    object-position: 0 20px;
+    margin-top: 1rem;
+}
+#home .modelStats {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 4rem 3rem;
+    gap: 3rem;
+    border-radius: 1rem;
+
+    background-color: var(--pColor4);
+}
+#home .modelStats .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+#home .modelStats .stat h3{
+    color: var(--sColor1);
+    font-size: 4.6rem;
+}
+#home .modelStats .stat p{
+    color: var(--pColor1);
+}
