@@ -15,4 +15,23 @@ for(const x of toggle) {
     })
 }
 
-const links = document.querySelectorAll('#header .menuList ul li a');
+const links = document.querySelectorAll('#header ul li a');
+for(const x of links) {
+    x.addEventListener('click', function() {
+        document.querySelector('body').classList.remove('menuExpanded');
+    })
+}
+
+ScrollReveal({
+    origin: 'top',
+    distance: '40px',
+    duration: 500,
+    reset: true
+}).reveal(`#home,
+         #home img, 
+         #home modelStats, 
+         #services, 
+         #services .card,
+         #about,
+         #about .sectionInfoAbout,
+         #about img`);
